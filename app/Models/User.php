@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Alerts;
+use App\Models\BasicInfo;
 
 class User extends Authenticatable
 {
@@ -47,4 +49,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the basic_info associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function basic_info(): HasOne
+    {
+        return $this->hasOne(BasicInfo::class, 'foreign_key', 'local_key');
+    }
+
+    /**
+     * Get all of the alerts for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function alerts(): HasMany
+    {
+        return $this->hasMany(Alerts::class, 'foreign_key', 'local_key');
+    }
 }

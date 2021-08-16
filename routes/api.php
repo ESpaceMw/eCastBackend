@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\User\ProfileController;
+use App\Http\Controllers\Api\User\AlertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,14 @@ Route::prefix('v1')->group(function () {
             Route::post('revert', [ProfileController::class, 'revert'])->name('revert');
 
         });
+
+    });
+
+    Route::prefix('alerts')->group(function () {
+
+        Route::post('create', [AlertController::class, 'create'])->name('create');
+
+        Route::get('delete', [AlertController::class, 'delete'])->name('delete');
 
     });
 

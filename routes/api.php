@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Authentication\AuthController;
+use App\Http\Controllers\Api\User\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,23 @@ Route::prefix('v1')->group(function () {
 
     Route::prefix('auth')->group(function () {
 
-    Route::post('login', [AuthController::class, 'login'])->name('login');
+        Route::post('login', [AuthController::class, 'login'])->name('login');
 
-    Route::post('register', [AuthController::class, 'register'])->name('register');
+        Route::post('register', [AuthController::class, 'register'])->name('register');
+
+    });
+
+    Route::prefix('profile')->group(function () {
+
+        Route::prefix('basic_info')->group(function () {
+
+            Route::post('create', [ProfileController::class, 'create'])->name('create');
+
+            Route::post('update', [ProfileController::class, 'update'])->name('update');
+
+            Route::post('revert', [ProfileController::class, 'revert'])->name('revert');
+
+        });
 
     });
 

@@ -19,6 +19,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::create([
+
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'gender' => $request->gender,
@@ -28,7 +29,8 @@ class AuthController extends Controller
             'phone_number' => $request->phone_number,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+
+            ])->sendEmailVerificationNotification();
 
     $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -56,4 +58,30 @@ class AuthController extends Controller
                 'token_type' => 'Bearer',
         ]);
     }
+
+    public function verify($user_id, Request $request) {
+
+    if (!$request->hasValidSignature()) {
+
+        return response()->json(["message" => "Invalid/Expired url provided."], 401);
+
+    }
+
+    $user = User::findOrFail($user_id);
+
+    if (!$user->hasVerifiedEmail()) {
+        $user->markEmailAsVerified();
+    }
+
+    return response()->json([
+        'message' => 'Verified'
+    ], 200);
+    }
+
+    public function resend() {
+        if (auth()->user()->hasVerifiedEmail()) {
+            return response()->json(["message" => "Email already verified."], 400);
+        }
+    }
+
 }

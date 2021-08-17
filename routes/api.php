@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
+use App\Http\Controllers\Api\Analytics\SubscribersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,16 @@ Route::prefix('v1')->group(function () {
         Route::post('create', [AlertController::class, 'create'])->name('create');
 
         Route::get('delete', [AlertController::class, 'delete'])->name('delete');
+
+    });
+
+    Route::prefix('subscription')->group(function () {
+
+        Route::post('subscribe', [SubscribersController::class, 'subscribe']);
+
+        Route::post('unsubscribe', [SubscribersController::class, 'unsubscribe']);
+
+        Route::get('subscribers', [SubscribersController::class, 'getSubscribers']);
 
     });
 

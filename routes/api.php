@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
+use App\Http\Controllers\Api\User\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,14 @@ Route::prefix('v1')->group(function () {
         Route::get('email/verify/{id}', [AuthController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name
 
         Route::get('email/resend', [AuthController::class, 'resend'])->name('verification.resend');
+
+    });
+
+    Route::prefix('category')->group(function () {
+
+        Route::post('user-create', [CategoryController::class, 'createUserCategory']);
+
+        Route::get('categories', [CategoryController::class, 'getInterestCategories']);
 
     });
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Channels;
+use App\Models\BasicInfo;
 
 class AuthController extends Controller
 {
@@ -30,14 +32,33 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
 
-            ])->sendEmailVerificationNotification();
+        ])->sendEmailVerificationNotification();
 
-    $token = $user->createToken('auth_token')->plainTextToken;
+        $basicInfo = BasicInfo::create([
+            'user_id' => $user->id,
+            'clip_art' => 'default_clip_art.png',
+            'podcast_url' => $user->first_name.$user->last_name,
+            'title' => '',
+            'tagline' => '',
+            'description' => '',
+            'category' => ''
 
-    return response()->json([
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-    ]);
+        ]);
+
+        Channels::create([
+            'user_id' => $user->id,
+            'channel_name' => $user->first_name.$user->last_time,
+            'covert_art' => $basicInfo->clip_art,
+            'description' => ''
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+        ]);
+
     }
 
     public function login(Request $request)

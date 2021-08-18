@@ -92,6 +92,16 @@ Route::prefix('v1')->group(function () {
 
             Route::post('create', [PodcastsController::class, 'createSeries']);
 
+            Route::post('delete', [PodcastsController::class, 'deleteSeries']);
+
+        });
+
+        Route::prefix('episodes')->group(function () {
+
+            Route::post('create', [PodcastsController::class, 'createEpisode']);
+
+            Route::post('delete', [PodcastsController::class, 'deleteSeries']);
+
         });
 
     });

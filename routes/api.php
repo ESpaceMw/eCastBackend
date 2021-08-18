@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
 use App\Http\Controllers\Api\User\CategoryController;
+use App\Http\Controllers\Api\Podcast\PodcastsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,16 @@ Route::prefix('v1')->group(function () {
         Route::post('unsubscribe', [SubscribersController::class, 'unsubscribe']);
 
         Route::get('subscribers', [SubscribersController::class, 'getSubscribers']);
+
+    });
+
+    Route::prefix('podcasts')->group(function () {
+
+        Route::prefix('series')->group(function () {
+
+            Route::post('create', [PodcastsController::class, 'createSeries']);
+
+        });
 
     });
 

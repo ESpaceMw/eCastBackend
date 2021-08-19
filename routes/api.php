@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
 use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
+use App\Http\Controllers\Api\Analytics\StatisticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +104,12 @@ Route::prefix('v1')->group(function () {
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 
         });
+
+    });
+
+    Route::prefix('statistics')->group(function () {
+
+        Route::get('countries', [StatisticsController::class, 'countriesListening']);
 
     });
 

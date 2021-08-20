@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PodcastSerie;
 use Image;
 use App\Models\PodcastEpisode;
+use Validator;
 
 class PodcastsController extends Controller
 {
@@ -53,13 +54,21 @@ class PodcastsController extends Controller
 
     public function createEpisode(Request $request){
 
-        $request->validate([
+        if($request->hasFile('audio_file')){
 
-            'audio_file' => 'required|file|max:10240',
-            'clip_art' => 'required|file|max:10240'
+                $validator = Validator::make($request->all(),[
 
-        ]);
+                    'audio_file' => 'required|max:30240',
+                    'clip_art' => 'required|mimes:png,jpg,jpeg,gif|max:10240'
 
+                ]);
+
+                if($validator->fails()) {
+
+                    return response()->json(['error'=>$validator->errors()], 401);
+                }
+
+        }
 
         $audioFile = time().'.'.$request->audio_file->extension();
         $request->audio_file->move(public_path('storage\podcasts'), $audioFile);
@@ -84,11 +93,20 @@ class PodcastsController extends Controller
             'clip_art' => $imageName,
             'description' => $request->description,
             'privacy' => $request->privacy,
-            'uploaded_at' => $request->uploadedAt
+            'uploaded_at' => $request->uploaded_at
         ]);
 
         return response()->json([
             'message' => 'Episode created successfully!'
+        ], 200);
+    }
+
+    public function deleteEpisode(Request $request){
+
+        PodcastEpisode::find($request->id)->delete();
+
+        return response()->json([
+            'message' => 'Podcast episode deleted successfully!'
         ], 200);
     }
 }

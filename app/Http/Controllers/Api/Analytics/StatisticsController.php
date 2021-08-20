@@ -10,10 +10,10 @@ class StatisticsController extends Controller
 {
     public function countriesListening(Request $request){
 
-        $countries = User::all('country');
+        $countries = User::all('country')[0];
 
         return response()->json([
-           'countries' => $countries
+           $countries
         ], 200);
     }
 }

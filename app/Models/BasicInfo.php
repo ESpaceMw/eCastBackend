@@ -10,6 +10,7 @@ class BasicInfo extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'clip_art',
         'podcast_url',
         'title',

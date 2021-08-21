@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Channels extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'cover_art',
+        'description'
+    ];
 }

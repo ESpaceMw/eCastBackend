@@ -32,7 +32,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
 
-        ])->sendEmailVerificationNotification();
+        ]);
 
         $basicInfo = BasicInfo::create([
             'user_id' => $user->id,
@@ -45,18 +45,18 @@ class AuthController extends Controller
 
         ]);
 
-        Channels::create([
+        $channel = Channels::create([
             'user_id' => $user->id,
-            'channel_name' => $user->first_name.$user->last_time,
-            'covert_art' => $basicInfo->clip_art,
-            'description' => ''
+            'name' => $user->first_name.$user->last_name,
+            'cover_art' => 'default_cover_art.png',
+            'description' => 'Hey there, this is my new podcast channel!🎉'
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
                     'access_token' => $token,
-                    'token_type' => 'Bearer',
+                    'token_type' => 'Bearer'
         ]);
 
     }

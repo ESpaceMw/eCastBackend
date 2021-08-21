@@ -10,7 +10,7 @@ class PodcastEpisode extends Model
     use HasFactory;
 
     protected $fillable = [
-        'podcast_series_id',
+        'podcast_serie_id',
         'title',
         'season',
         'episode_number',

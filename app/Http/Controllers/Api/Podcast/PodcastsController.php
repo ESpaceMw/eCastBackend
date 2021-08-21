@@ -52,6 +52,18 @@ class PodcastsController extends Controller
         ], 200);
     }
 
+    public function getChannelSeries(Request $request){
+
+        $series = PodcastSerie::where('channel_id', $request->channel_id)
+        ->with('podcastEpisodes')
+        ->get();
+
+        return response()->json([
+            'series' => $series
+        ], 200);
+
+    }
+
     public function createEpisode(Request $request){
 
         if($request->hasFile('audio_file')){
@@ -85,7 +97,7 @@ class PodcastsController extends Controller
         $img->save('storage\podcasts/'.$imageName);
 
         PodcastEpisode::create([
-            'podcast_series_id' => $request->serie_id,
+            'podcast_serie_id' => $request->podcast_serie_id,
             'title' => $request->title,
             'season' => $request->season,
             'episode_number' => $request->ePNumber,

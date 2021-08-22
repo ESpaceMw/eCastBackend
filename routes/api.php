@@ -75,6 +75,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('create', [AlertController::class, 'create'])->name('create');
 
+        Route::post('get-alerts', [AlertController::class, 'getAlerts'])->name('get-alerts');
+
         Route::get('delete', [AlertController::class, 'delete'])->name('delete');
 
     });

@@ -26,6 +26,13 @@ class AlertController extends Controller
         ], 200);
     }
 
+    public function getAlerts(Request $request){
+
+        return response()->json([
+            'alerts' => Alerts::where('user_id', $request->user_id)->get()
+        ], 200);
+    }
+
     public function delete(Request $request){
 
         Alerts::where('user_id', $request->user_id)->firstOrFail()->delete();

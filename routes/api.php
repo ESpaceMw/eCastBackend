@@ -41,6 +41,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('register', [AuthController::class, 'register'])->name('register');
 
+        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
         Route::get('email/verify/{id}', [AuthController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name
 
         Route::get('email/resend', [AuthController::class, 'resend'])->name('verification.resend');

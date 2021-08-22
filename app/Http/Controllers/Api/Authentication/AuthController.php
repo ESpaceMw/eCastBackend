@@ -75,12 +75,25 @@ class AuthController extends Controller
 
         $user = User::where('email', $request['email'])->firstOrFail();
 
+        $channel = Channels::where('user_id', $user->id)->get();
+
+        $basicInfo = BasicInfo::where('user_id', $user->id)->get();
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
                 'access_token' => $token,
                 'token_type' => 'Bearer',
+                'user' => $user,
+                'channel' => $channel,
+                'basic_info' => $basicInfo
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json(['message' => 'Logged Out'], 200);
     }
 
     public function verify($user_id, Request $request) {

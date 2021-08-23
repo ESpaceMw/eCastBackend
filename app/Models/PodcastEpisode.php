@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\EpisodeListens;
 
 class PodcastEpisode extends Model
 {
@@ -20,5 +21,15 @@ class PodcastEpisode extends Model
         'privacy',
         'uploaded_at'
     ];
+
+    /**
+     * Get all of the listens for the PodcastEpisode
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function listens()
+    {
+        return $this->hasMany(EpisodeListens::class);
+    }
 
 }

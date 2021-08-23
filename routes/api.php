@@ -97,7 +97,7 @@ Route::prefix('v1')->group(function () {
 
             Route::post('create', [PodcastsController::class, 'createSeries']);
 
-            Route::get('get', [PodcastsController::class, 'getChannelSeries']);
+            Route::post('get', [PodcastsController::class, 'getChannelSeries']);
 
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 

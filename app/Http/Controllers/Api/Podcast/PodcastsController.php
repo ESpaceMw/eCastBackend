@@ -55,7 +55,7 @@ class PodcastsController extends Controller
     public function getChannelSeries(Request $request){
 
         $series = PodcastSerie::where('channel_id', $request->channel_id)
-        ->with('podcastEpisodes')
+        ->with('podcastEpisodes.listens')
         ->get();
 
         return response()->json([

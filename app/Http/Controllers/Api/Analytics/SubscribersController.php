@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Analytics;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subscribers;
+use App\Models\User;
 
 class SubscribersController extends Controller
 {
@@ -45,7 +46,7 @@ class SubscribersController extends Controller
         $subscribersIDs = Subscribers::where('channel_id', $request->channel_id)->pluck('user_id');
 
         return response()->json([
-            'subscribers'=> $subscribersIDs
+            'subscribers'=> User::with('basic_info')->find($subscribersIDs)
         ], 200);
 
     }

@@ -87,7 +87,7 @@ Route::prefix('v1')->group(function () {
 
         Route::post('unsubscribe', [SubscribersController::class, 'unsubscribe']);
 
-        Route::get('subscribers', [SubscribersController::class, 'getSubscribers']);
+        Route::post('subscribers', [SubscribersController::class, 'getSubscribers']);
 
     });
 
@@ -106,6 +106,8 @@ Route::prefix('v1')->group(function () {
         Route::prefix('episodes')->group(function () {
 
             Route::post('create', [PodcastsController::class, 'createEpisode']);
+
+            Route::post('listen-create', [PodcastsController::class, 'addListen']);
 
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 

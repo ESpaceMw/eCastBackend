@@ -8,6 +8,7 @@ use App\Models\PodcastSerie;
 use Image;
 use App\Models\PodcastEpisode;
 use Validator;
+use App\Models\EpisodeListens;
 
 class PodcastsController extends Controller
 {
@@ -119,6 +120,19 @@ class PodcastsController extends Controller
 
         return response()->json([
             'message' => 'Podcast episode deleted successfully!'
+        ], 200);
+    }
+
+    public function addListen(Request $request){
+
+        EpisodeListens::create([
+            'user_id' => $request->user_id,
+            'podcast_serie_id' => $request->podcast_serie_id,
+            'podcast_episode_id' => $request->podcast_episode_id
+        ]);
+
+        return response()->json([
+            'message' => 'success'
         ], 200);
     }
 }

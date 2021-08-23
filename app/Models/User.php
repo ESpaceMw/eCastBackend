@@ -56,9 +56,9 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function basic_info(): HasOne
+    public function basic_info()
     {
-        return $this->hasOne(BasicInfo::class, 'foreign_key', 'local_key');
+        return $this->hasOne(BasicInfo::class);
     }
 
     /**

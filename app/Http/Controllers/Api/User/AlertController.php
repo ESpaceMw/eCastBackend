@@ -35,7 +35,7 @@ class AlertController extends Controller
 
     public function delete(Request $request){
 
-        Alerts::where('user_id', $request->user_id)->firstOrFail()->delete();
+        Alerts::find($request->id)->delete();
 
         return response()->json([
             'message' => 'Alert deleted successfully'

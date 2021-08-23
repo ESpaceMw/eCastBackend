@@ -77,7 +77,7 @@ Route::prefix('v1')->group(function () {
 
         Route::post('get-alerts', [AlertController::class, 'getAlerts'])->name('get-alerts');
 
-        Route::get('delete', [AlertController::class, 'delete'])->name('delete');
+        Route::post('delete', [AlertController::class, 'delete'])->name('delete');
 
     });
 

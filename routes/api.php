@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
 use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
+use App\Http\Controllers\Api\Podcast\EventsController;
 use App\Http\Controllers\Api\Analytics\StatisticsController;
 
 /*
@@ -118,6 +119,18 @@ Route::prefix('v1')->group(function () {
     Route::prefix('statistics')->group(function () {
 
         Route::get('countries', [StatisticsController::class, 'countriesListening']);
+
+    });
+
+    Route::prefix('events')->group(function () {
+
+        Route::post('create', [EventsController::class, 'create']);
+
+        Route::post('edit', [EventsController::class, 'edit']);
+
+        Route::post('promote', [EventsController::class, 'promote']);
+
+        Route::post('get', [EventsController::class, 'getEvents']);
 
     });
 

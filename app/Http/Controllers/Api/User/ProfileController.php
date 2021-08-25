@@ -43,33 +43,51 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
-            'clip_art' => 'required|file|max:3024'
-        ]);
+        if($request->hasFile('clip_art')){
+            $request->validate([
+                'clip_art' => 'required|file|max:10240'
+            ]);
 
-        $imageName = time().'.'.$request->clip_art->extension();
-        $request->clip_art->move(public_path('storage\profile'), $imageName);
+            $imageName = time().'.'.$request->clip_art->extension();
+            $request->clip_art->move(public_path('storage\profile'), $imageName);
 
-        $path = public_path('storage\profile');
+            $path = public_path('storage\profile');
 
-        $img = Image::make($path.'/'.$imageName);
+            $img = Image::make($path.'/'.$imageName);
 
-        $img->resize(512, 512);
+            $img->resize(512, 512);
 
-        $img->save('storage\profile/'.$imageName);
+            $img->save('storage\profile/'.$imageName);
 
-        BasicInfo::update([
-            'title' => $request->title,
-            'tagline' => $request->tagline,
-            'clip_art' => $request->clip_art,
-            'description' => $request->description,
-            'category' => $request->category,
-            'language' => $request->language
-        ]);
+            $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
 
-        return response()->json([
-            'message' => 'Basic info updated successfully'
-        ], 200);
+            $basicInfo->title = $request->title;
+            $basicInfo->tagline = $request->tagline;
+            $basicInfo->clip_art = $request->clip_art;
+            $basicInfo->description = $request->description;
+            $basicInfo->category = $request->category;
+            $basicInfo->language = $request->language;
+
+            $basicInfo->update();
+
+            return response()->json([
+                'message' => 'Basic info updated successfully'
+            ], 200);
+        }else{
+            $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
+
+            $basicInfo->title = $request->title;
+            $basicInfo->tagline = $request->tagline;
+            $basicInfo->description = $request->description;
+            $basicInfo->category = $request->category;
+            $basicInfo->language = $request->language;
+
+            $basicInfo->update();
+
+            return response()->json([
+                'message' => 'Basic info updated successfully'
+            ], 200);
+        }
     }
 
     public function revert(Request $request)

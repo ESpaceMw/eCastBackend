@@ -30,7 +30,7 @@ class PodcastsController extends Controller
         $img->save('storage\series/'.$imageName);
 
         PodcastSerie::create([
-            'channels_id' => $request->channel_id,
+            'channels_id' => $request->channels_id,
             'title' => $request->title,
             'cover_art' => $imageName,
             'seasons' => $request->seasons,
@@ -55,7 +55,7 @@ class PodcastsController extends Controller
 
     public function getChannelSeries(Request $request){
 
-        $series = PodcastSerie::where('channel_id', $request->channel_id)
+        $series = PodcastSerie::where('channels_id', $request->channels_id)
         ->with('podcastEpisodes.listens')
         ->get();
 
@@ -71,7 +71,7 @@ class PodcastsController extends Controller
 
                 $validator = Validator::make($request->all(),[
 
-                    'audio_file' => 'required|max:30240',
+                    'audio_file' => 'required|max:10240',
                     'clip_art' => 'required|mimes:png,jpg,jpeg,gif|max:10240'
 
                 ]);
@@ -98,6 +98,7 @@ class PodcastsController extends Controller
         $img->save('storage\podcasts/'.$imageName);
 
         PodcastEpisode::create([
+            'channels_id' => $request->channels_id,
             'podcast_serie_id' => $request->podcast_serie_id,
             'title' => $request->title,
             'season' => $request->season,

@@ -12,7 +12,7 @@ class PodcastSerie extends Model
 
     protected $fillable = [
         'podcast_serie_id',
-        'channel_id',
+        'channels_id',
         'title',
         'cover_art',
         'seasons',

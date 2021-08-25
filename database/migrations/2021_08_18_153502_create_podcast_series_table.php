@@ -22,7 +22,7 @@ class CreatePodcastSeriesTable extends Migration
             $table->integer('seasons');
             $table->string('subscription_type');
             $table->string('category');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

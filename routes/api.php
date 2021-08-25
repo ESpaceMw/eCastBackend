@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
+use App\Http\Controllers\Api\User\SearchController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
 use App\Http\Controllers\Api\Analytics\ChannelsController;
 use App\Http\Controllers\Api\User\CategoryController;
@@ -142,6 +143,14 @@ Route::prefix('v1')->group(function () {
         Route::post('promote', [EventsController::class, 'promote']);
 
         Route::post('get', [EventsController::class, 'getEvents']);
+
+    });
+
+    Route::prefix('search')->group(function () {
+
+        Route::post('recent-create', [SearchController::class, 'create']);
+
+        Route::post('recent-get', [SearchController::class, 'get']);
 
     });
 

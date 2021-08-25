@@ -17,7 +17,8 @@ class CreateSubscribersTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('channel_id');
+            $table->integer('channels_id')->unsigned()->nullable();
+            $table->foreign('channels_id')->references('id')->on('channels');
             $table->timestamps();
         });
     }

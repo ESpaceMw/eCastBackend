@@ -15,7 +15,7 @@ class PodcastsController extends Controller
     public function createSeries(Request $request){
 
         $request->validate([
-            'cover_art' => 'required|file|max:3024'
+            'cover_art' => 'required|file|mimes:jpg,blob,jpeg,gif,png|max:30240'
         ]);
 
         $imageName = time().'.'.$request->cover_art->extension();
@@ -30,7 +30,7 @@ class PodcastsController extends Controller
         $img->save('storage\series/'.$imageName);
 
         PodcastSerie::create([
-            'channel_id' => $request->channel_id,
+            'channels_id' => $request->channel_id,
             'title' => $request->title,
             'cover_art' => $imageName,
             'seasons' => $request->seasons,

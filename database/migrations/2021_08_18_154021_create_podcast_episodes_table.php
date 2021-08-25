@@ -17,6 +17,8 @@ class CreatePodcastEpisodesTable extends Migration
             $table->id();
             $table->integer('podcast_serie_id')->unsigned()->nullable();
             $table->foreign('podcast_serie_id')->references('id')->on('postcast_series');
+            $table->integer('channels_id')->unsigned()->nullable();
+            $table->foreign('channels_id')->references('id')->on('channels');
             $table->string('title');
             $table->integer('season');
             $table->integer('episode_number');

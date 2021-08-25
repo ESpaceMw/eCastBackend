@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
+use App\Http\Controllers\Api\Analytics\ChannelsController;
 use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
 use App\Http\Controllers\Api\Podcast\EventsController;
@@ -113,6 +114,12 @@ Route::prefix('v1')->group(function () {
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 
         });
+
+    });
+
+    Route::prefix('channels')->group(function () {
+
+        Route::get('get', [ChannelsController::class, 'getChannels']);
 
     });
 

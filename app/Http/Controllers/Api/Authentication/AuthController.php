@@ -121,4 +121,33 @@ class AuthController extends Controller
         }
     }
 
+    public function update(Request $request){
+
+        if($request->hasFile('clip_art')){
+
+            $request->validate([
+                'clip_art' => 'required|image|mimes:png,gif,jpg,jpeg|max:255'
+            ]);
+
+            $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
+
+            $basicInfo->clip_art = '';
+            $basicInfo->title = '';
+            $basicInfo->tagline = '';
+            $basicInfo->description = '';
+            $basicInfo->category = '';
+
+            $basicInfo->update();
+        }else{
+           $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
+
+            $basicInfo->title = '';
+            $basicInfo->tagline = '';
+            $basicInfo->description = '';
+            $basicInfo->category = '';
+
+            $basicInfo->update();
+        }
+    }
+
 }

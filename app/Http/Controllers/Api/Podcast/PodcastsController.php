@@ -124,6 +124,13 @@ class PodcastsController extends Controller
         ], 200);
     }
 
+    public function getEpisodes(Request $request){
+
+        return response()->json([
+            'podcasts' => PodcastEpisode::orderBy('title', 'asc')->get()
+        ], 200);
+    }
+
     public function addListen(Request $request){
 
         EpisodeListens::create([

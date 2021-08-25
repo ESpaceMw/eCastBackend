@@ -113,6 +113,8 @@ Route::prefix('v1')->group(function () {
 
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 
+            Route::get('all', [PodcastsController::class, 'getEpisodes']);
+
         });
 
     });
@@ -120,6 +122,8 @@ Route::prefix('v1')->group(function () {
     Route::prefix('channels')->group(function () {
 
         Route::get('get', [ChannelsController::class, 'getChannels']);
+
+        Route::post('update-channel', [ChannelsController::class, 'updateChannel']);
 
     });
 

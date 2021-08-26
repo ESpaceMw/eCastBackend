@@ -12,6 +12,8 @@ use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
 use App\Http\Controllers\Api\Podcast\EventsController;
 use App\Http\Controllers\Api\Analytics\StatisticsController;
+use App\Http\Controllers\Api\Overview\InboxController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -151,6 +153,14 @@ Route::prefix('v1')->group(function () {
         Route::post('recent-create', [SearchController::class, 'create']);
 
         Route::post('recent-get', [SearchController::class, 'get']);
+
+    });
+
+    Route::prefix('inbox')->group(function () {
+
+
+        Route::get('messages/fetch', [InboxController::class, 'fetchMessages']);
+        Route::post('messages/send', [InboxController::class, 'sendMessage']);
 
     });
 

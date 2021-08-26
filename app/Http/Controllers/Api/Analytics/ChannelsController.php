@@ -25,6 +25,7 @@ class ChannelsController extends Controller
             $channel = Channels::where('user_id', $request->user_id)->firstOrFail();
 
             $channel->name = $request->name;
+            $channel->description = $request->description;
             $channel->cover_art = $imageName;
 
             $channel->update();
@@ -39,6 +40,7 @@ class ChannelsController extends Controller
             $channel = Channels::where('user_id', $request->user_id)->firstOrFail();
 
             $channel->name = $request->name;
+            $channel->description = $request->description;
 
             $channel->update();
 

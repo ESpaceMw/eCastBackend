@@ -13,7 +13,7 @@ class CreateMesssagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messsages', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sender_id')->unsigned();
             $table->text('rec_id');

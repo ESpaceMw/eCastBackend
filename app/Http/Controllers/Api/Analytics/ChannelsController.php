@@ -71,4 +71,11 @@ class ChannelsController extends Controller
             'message' => 'success'
         ], 200);
     }
+
+    public function getReviews(Request $request){
+
+        return response()->json([
+            'reviews'  => ListenersReviews::where('channels_id', $request->channels_id)->get()
+        ], 200);
+    }
 }

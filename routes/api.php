@@ -128,6 +128,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('update-channel', [ChannelsController::class, 'updateChannel']);
 
+        Route::post('listener-review-create', [ChannelsController::class, 'createReview']);
+
     });
 
     Route::prefix('statistics')->group(function () {

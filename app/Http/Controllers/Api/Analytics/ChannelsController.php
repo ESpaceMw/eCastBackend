@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Analytics;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Channels;
+use App\Models\ListenersReviews;
 use Validator;
 
 class ChannelsController extends Controller
@@ -53,6 +54,21 @@ class ChannelsController extends Controller
 
         return response()->json([
             'channels' => Channels::with('episodes')->with('subscribers')->get()
+        ], 200);
+    }
+
+    public function createReview(Request $request){
+
+        $review = ListenersReviews::create([
+            'channels_id' => $request->channels_id,
+            'reviewer_name' => $request->name,
+            'reviewer_avatar' => $request->avatar,
+            'review' => $request->review,
+            'stars' => $request->stars
+        ]);
+
+        return response()->json([
+            'message' => 'success'
         ], 200);
     }
 }

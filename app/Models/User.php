@@ -11,6 +11,7 @@ use App\Models\Alerts;
 use App\Models\BasicInfo;
 use Laravel\Cashier\Billable;
 use App\Models\Message;
+use App\Models\Channels;
 
 class User extends Authenticatable
 {
@@ -72,7 +73,14 @@ class User extends Authenticatable
         return $this->hasMany(Alerts::class, 'foreign_key', 'local_key');
     }
 
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany(Message::class,'sender_id');
     }
+
+    public function channels()
+    {
+        return $this->hasOne(Channels::class);
+    }
+
 }

@@ -78,4 +78,14 @@ class ChannelsController extends Controller
             'reviews'  => ListenersReviews::where('channels_id', $request->channels_id)->get()
         ], 200);
     }
+
+    public function channelProfile(Request $request){
+
+        $user = User::with('channels')->with('channels.podcast_episodes')->get();
+
+        return response()->json([
+            'user' => $user
+        ], 200);
+    }
+
 }

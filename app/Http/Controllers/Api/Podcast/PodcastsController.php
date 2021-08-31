@@ -143,4 +143,11 @@ class PodcastsController extends Controller
             'message' => 'success'
         ], 200);
     }
+
+    public function getPopularPodcasts(Request $request){
+
+        return response()->json([
+            'popular_podcasts' => PodcastEpisode::has('listens', '>', 1)->withCount('listens')->get()
+        ], 200);
+    }
 }

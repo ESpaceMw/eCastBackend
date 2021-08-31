@@ -114,6 +114,8 @@ Route::prefix('v1')->group(function () {
 
             Route::post('listen-create', [PodcastsController::class, 'addListen']);
 
+            Route::get('popular-podcasts', [PodcastsController::class, 'getPopularPodcasts']);
+
             Route::post('delete', [PodcastsController::class, 'deleteSeries']);
 
             Route::get('all', [PodcastsController::class, 'getEpisodes']);

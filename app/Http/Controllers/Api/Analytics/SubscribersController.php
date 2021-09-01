@@ -11,7 +11,7 @@ class SubscribersController extends Controller
 {
     public function subscribe(Request $request){
 
-        if ( Subscribers::where('user_id', $request->user_id)->where('channel_id', $request->channel_id)->get()->count() >= 1) {
+        if ( Subscribers::where('user_id', $request->user_id)->where('channels_id', $request->channels_id)->get()->count() >= 1) {
 
             return response()->json([
                 'message' => "You are already subscribed to this channel"
@@ -21,7 +21,7 @@ class SubscribersController extends Controller
 
             Subscribers::create([
                 'user_id' => $request->user_id,
-                'channel_id' => $request->channel_id
+                'channels_id' => $request->channels_id
             ]);
 
             return response()->json([
@@ -33,7 +33,7 @@ class SubscribersController extends Controller
 
     public function unsubscribe(Request $request){
 
-        Subscribers::where('user_id', $request->user_id)->where('channel_id', $request->channel_id)->firstOrFail()->delete();
+        Subscribers::where('user_id', $request->user_id)->where('channels_id', $request->channels_id)->firstOrFail()->delete();
 
         return response()->json([
             'message' => "Channel unsubscribed successful"
@@ -43,7 +43,7 @@ class SubscribersController extends Controller
 
     public function getSubscribers(Request $request){
 
-        $subscribersIDs = Subscribers::where('channel_id', $request->channel_id)->pluck('user_id');
+        $subscribersIDs = Subscribers::where('channels_id', $request->channels_id)->pluck('user_id');
 
         return response()->json([
             'subscribers'=> User::with('basic_info')->find($subscribersIDs)

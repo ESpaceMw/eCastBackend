@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Analytics\ChannelsController;
 use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
 use App\Http\Controllers\Api\Podcast\EventsController;
+use App\Http\Controllers\Api\Podcast\MediaController;
 use App\Http\Controllers\Api\Analytics\StatisticsController;
 use App\Http\Controllers\Api\Overview\InboxController;
 
@@ -120,6 +121,13 @@ Route::prefix('v1')->group(function () {
 
             Route::get('all', [PodcastsController::class, 'getEpisodes']);
 
+        });
+
+        Route::prefix('media')->group(function () {
+
+            Route::post('photos', [MediaController::class, 'getPhotos']);
+
+            Route::post('audios', [MediaController::class, 'getAudios']);
         });
 
     });

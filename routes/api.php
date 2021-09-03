@@ -95,6 +95,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('subscribers', [SubscribersController::class, 'getSubscribers']);
 
+        Route::post('new-subscribers', [SubscribersController::class, 'getNewSubscribers']);
+
     });
 
     Route::prefix('podcasts')->group(function () {
@@ -148,6 +150,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('countries', [StatisticsController::class, 'countriesListening']);
 
+        Route::get('listens-by-gender', [StatisticsController::class, 'getListensByGender']);
+
+        Route::get('annual-listens', [StatisticsController::class, 'getAnnualListens']);
     });
 
     Route::prefix('events')->group(function () {

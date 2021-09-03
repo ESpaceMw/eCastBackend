@@ -40,12 +40,34 @@ class StatisticsController extends Controller
 
     public function getAnnualListens(Request $request){
 
-        $listeners = EpisodeListens::groupBy('created_at', ['09'])
-        ->orderBy('created_at', ['09'])
-        ->get();
+        $jan = EpisodeListens::whereMonth('created_at', '01')->get()->count();
+        $feb = EpisodeListens::whereMonth('created_at', '02')->get()->count();
+        $mar = EpisodeListens::whereMonth('created_at', '03')->get()->count();
+
+        $apr = EpisodeListens::whereMonth('created_at', '04')->get()->count();
+
+        $may = EpisodeListens::whereMonth('created_at', '05')->get()->count();
+        $jun = EpisodeListens::whereMonth('created_at', '06')->get()->count();
+        $jul = EpisodeListens::whereMonth('created_at', '07')->get()->count();
+        $aug = EpisodeListens::whereMonth('created_at', '08')->get()->count();
+        $sept = EpisodeListens::whereMonth('created_at', '09')->get()->count();
+        $oct = EpisodeListens::whereMonth('created_at', '10')->get()->count();
+        $nov = EpisodeListens::whereMonth('created_at', '11')->get()->count();
+        $dec = EpisodeListens::whereMonth('created_at', '12')->get()->count();
 
         return response()->json([
-            'annual_listens' => $listeners
+            $jan,
+            $jan,
+            $mar,
+            $apr,
+            $may,
+            $jun,
+            $jul,
+            $aug,
+            $sept,
+            $oct,
+            $nov,
+            $dec
         ], 200);
 
     }

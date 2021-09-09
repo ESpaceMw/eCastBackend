@@ -20,9 +20,9 @@ class HostingPlans extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hostingPlansAttributes(): HasMany
+    public function hostingPlansAttributes()
     {
-        return $this->hasMany(HostingPlanAttributes::class, 'foreign_key', 'local_key');
+        return $this->hasMany(HostingPlanAttributes::class);
     }
 
     /**
@@ -30,8 +30,8 @@ class HostingPlans extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hostingPlanPrices(): HasMany
+    public function hostingPlanPrices()
     {
-        return $this->hasMany(HostingPlanPrices::class, 'foreign_key', 'local_key');
+        return $this->hasMany(HostingPlanPrices::class);
     }
 }

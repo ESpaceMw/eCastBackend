@@ -14,8 +14,8 @@ class CreateHostingPlanAttributesTable extends Migration
     public function up()
     {
         Schema::create('hosting_plan_attributes', function (Blueprint $table) {
-            $table->integer('hosting_plan_id')->unsigned()->nullable();
-            $table->foreign('hosting_plan_id')->references('id')->on('hosting_plans');
+            $table->integer('hosting_plans_id')->unsigned()->nullable();
+            $table->foreign('hosting_plans_id')->references('id')->on('hosting_plans');
             $table->string('attribute');
             $table->timestamps();
         });

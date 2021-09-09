@@ -25,4 +25,11 @@ class SubscriptionController extends Controller
             'message' => 'Basic plan successfully subscribed'
         ], 200);
     }
+
+    public function hostingPlans(Request $request){
+
+        return response()->json([
+            'hosting_plans' => HostingPlans::with('hostingPlansAttributes')->with('hostingPlanPrices')->get()
+        ], 200);
+    }
 }

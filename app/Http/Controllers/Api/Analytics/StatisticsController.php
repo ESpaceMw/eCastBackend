@@ -38,6 +38,15 @@ class StatisticsController extends Controller
         ], 200);
     }
 
+    public function totalAnnualListens(Request $request){
+
+        $total = EpisodeListens::whereYear('created_at', date('Y'))->get()->count();
+
+        return response()->json([
+            'total_listens' => $total
+        ], 200);
+    }
+
     public function getAnnualListens(Request $request){
 
         $jan = EpisodeListens::whereMonth('created_at', '01')->get()->count();

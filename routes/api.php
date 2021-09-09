@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\User\SearchController;
 use App\Http\Controllers\Api\Analytics\SubscribersController;
 use App\Http\Controllers\Api\Analytics\ChannelsController;
 use App\Http\Controllers\Api\User\CategoryController;
+use App\Http\Controllers\Api\User\SubscriptionController;
 use App\Http\Controllers\Api\Podcast\PodcastsController;
 use App\Http\Controllers\Api\Podcast\EventsController;
 use App\Http\Controllers\Api\Podcast\MediaController;
@@ -96,6 +97,14 @@ Route::prefix('v1')->group(function () {
         Route::post('subscribers', [SubscribersController::class, 'getSubscribers']);
 
         Route::post('new-subscribers', [SubscribersController::class, 'getNewSubscribers']);
+
+    });
+
+    Route::prefix('subscription')->group(function () {
+
+        Route::get('hosting-plans', [SubscriptionController::class, 'hostingPlans']);
+
+        Route::post('pay-hosting-plan', [SubscriptionController::class, 'store']);
 
     });
 

@@ -153,6 +153,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('listener-review-get', [ChannelsController::class, 'getReviews']);
 
+        Route::post('channel-attributes', [ChannelsController::class, 'channelAttributes']);
+
     });
 
     Route::prefix('statistics')->group(function () {
@@ -162,6 +164,8 @@ Route::prefix('v1')->group(function () {
         Route::get('listens-by-gender', [StatisticsController::class, 'getListensByGender']);
 
         Route::get('annual-listens', [StatisticsController::class, 'getAnnualListens']);
+
+        Route::get('total-annual-listens', [StatisticsController::class, 'totalAnnualListens']);
     });
 
     Route::prefix('events')->group(function () {

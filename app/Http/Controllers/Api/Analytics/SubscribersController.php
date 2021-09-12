@@ -21,7 +21,7 @@ class SubscribersController extends Controller
 
             Subscribers::create([
                 'user_id' => $request->user_id,
-                'channels_id' => $request->channels_id
+                'channels_id' => $request->channel_id
             ]);
 
             return response()->json([

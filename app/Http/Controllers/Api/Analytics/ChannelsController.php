@@ -88,4 +88,13 @@ class ChannelsController extends Controller
         ], 200);
     }
 
+    public function channelAttributes(Request $request){
+
+        $channelAttributes = Channels::with('episodes')->withCount('subscribers')->find($request->channels_id);
+
+        return response()->json([
+            'channel_attributes' => $channelAttributes
+        ], 200);
+    }
+
 }

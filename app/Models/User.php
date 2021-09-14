@@ -12,6 +12,7 @@ use App\Models\BasicInfo;
 use Laravel\Cashier\Billable;
 use App\Models\Message;
 use App\Models\Channels;
+use App\Models\RecentSearches;
 
 class User extends Authenticatable
 {
@@ -68,19 +69,40 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function alerts(): HasMany
+    public function alerts()
     {
-        return $this->hasMany(Alerts::class, 'foreign_key', 'local_key');
+        return $this->hasMany(Alerts::class);
     }
+
+    /**
+     * Get all of the messages for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
 
     public function messages()
     {
         return $this->hasMany(Message::class,'sender_id');
     }
 
+    /**
+     * Get all of the channels for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function channels()
     {
         return $this->hasOne(Channels::class);
+    }
+
+    /**
+     * Get all of the recent searches for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function recentSearches()
+    {
+        return $this->hasMany(RecentSearches::class);
     }
 
 }

@@ -150,4 +150,21 @@ class AuthController extends Controller
         }
     }
 
+    public function accountDeactivation(Request $request){
+
+        $user = User::with('basic_info')
+                    ->with('alerts')
+                    ->with('messages')
+                    ->with('channels')
+                    ->with('channels.podcast_episodes')
+                    ->with('channels.podcast_series')
+                    ->with('recentSearches')
+                    ->find($request->user_id)
+                    ->delete();
+
+        return response()->json([
+            'message' => 'Account deleted successfully'
+        ], 200);
+    }
+
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Authentication\AuthController;
+use App\Http\Controllers\Api\Authentication\ForgotPasswordController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\User\AlertController;
 use App\Http\Controllers\Api\User\SearchController;
@@ -49,6 +50,10 @@ Route::prefix('v1')->group(function () {
         Route::post('register', [AuthController::class, 'register'])->name('register');
 
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+        Route::post('forgot-password', [ForgotPasswordController::class, 'forgot']);
+
+        Route::post('password-reset', [ForgotPasswordController::class, 'reset']);
 
         Route::post('account/deactivation', [AuthController::class, 'accountDeactivation'])->name('account/deactivation');
 

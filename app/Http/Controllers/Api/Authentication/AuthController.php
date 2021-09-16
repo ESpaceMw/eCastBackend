@@ -49,7 +49,7 @@ class AuthController extends Controller
             'user_id' => $user->id,
             'name' => $user->first_name.$user->last_name,
             'cover_art' => 'default_cover_art.png',
-            'description' => 'Hey there, this is my new podcast channel!🎉'
+            'description' => 'Hey there, this is my new podcast channel!'
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -156,8 +156,9 @@ class AuthController extends Controller
                     ->with('alerts')
                     ->with('messages')
                     ->with('channels')
-                    ->with('channels.podcast_episodes')
-                    ->with('channels.podcast_series')
+                    ->with('channels.episodes')
+                    ->with('channels.series')
+                    ->with('channels.subscribers')
                     ->with('recentSearches')
                     ->find($request->user_id)
                     ->delete();

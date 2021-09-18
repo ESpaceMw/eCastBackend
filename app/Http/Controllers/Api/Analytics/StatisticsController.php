@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\EpisodeListens;
 use DB;
+use App\Http\Traits\EngagementTrait;
 
 class StatisticsController extends Controller
 {
+    use EngagementTrait;
+
     public function countriesListening(Request $request){
 
         $countries = User::all('country')[0];
@@ -79,5 +82,14 @@ class StatisticsController extends Controller
             $dec
         ], 200);
 
+    }
+
+    public function userEngagements(Request $request)
+    {
+        $this->create($request->user_id);
+
+        return response()->json([
+            'message' => 'Created!'
+        ], 200);
     }
 }

@@ -175,6 +175,10 @@ Route::prefix('v1')->group(function () {
         Route::get('annual-listens', [StatisticsController::class, 'getAnnualListens']);
 
         Route::get('total-annual-listens', [StatisticsController::class, 'totalAnnualListens']);
+
+        /* Engagements */
+        Route::post('create-engagement', [StatisticsController::class, 'userEngagements']);
+
     });
 
     Route::prefix('events')->group(function () {

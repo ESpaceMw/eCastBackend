@@ -115,6 +115,15 @@ class PodcastsController extends Controller
         ], 200);
     }
 
+    public function podcastListen(Request $request){
+
+        $episode = PodcastEpisode::where('id', $request->id)->firstOrFail();
+
+        return response()->json([
+            'episode' => $episode
+        ], 200);
+    }
+
     public function deleteEpisode(Request $request){
 
         PodcastEpisode::find($request->id)->delete();

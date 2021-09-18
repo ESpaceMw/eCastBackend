@@ -131,6 +131,8 @@ Route::prefix('v1')->group(function () {
 
             Route::post('create', [PodcastsController::class, 'createEpisode']);
 
+            Route::post('listen', [PodcastsController::class, 'podcastListen']);
+
             Route::post('listen-create', [PodcastsController::class, 'addListen']);
 
             Route::get('popular-podcasts', [PodcastsController::class, 'getPopularPodcasts']);

@@ -51,19 +51,11 @@ class ProfileController extends Controller
             $imageName = time().'.'.$request->clip_art->extension();
             $request->clip_art->move(public_path('storage\profile'), $imageName);
 
-            $path = public_path('storage\profile');
-
-            $img = Image::make($path.'/'.$imageName);
-
-            $img->resize(512, 512);
-
-            $img->save('storage\profile/'.$imageName);
-
             $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
 
             $basicInfo->title = $request->title;
             $basicInfo->tagline = $request->tagline;
-            $basicInfo->clip_art = $request->clip_art;
+            $basicInfo->clip_art = $imageName;
             $basicInfo->description = $request->description;
             $basicInfo->category = $request->category;
             $basicInfo->language = $request->language;
@@ -71,7 +63,8 @@ class ProfileController extends Controller
             $basicInfo->update();
 
             return response()->json([
-                'message' => 'Basic info updated successfully'
+                'message' => 'Basic info updated successfully',
+                'basic_info' => $basicInfo
             ], 200);
         }else{
             $basicInfo = BasicInfo::where('user_id', $request->user_id)->firstOrFail();
@@ -85,7 +78,8 @@ class ProfileController extends Controller
             $basicInfo->update();
 
             return response()->json([
-                'message' => 'Basic info updated successfully'
+                'message' => 'Basic info updated successfully',
+                'basic_info' => $basicInfo
             ], 200);
         }
     }

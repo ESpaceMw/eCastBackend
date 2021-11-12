@@ -1,0 +1,3564 @@
+openapi: 3.0.3
+info:
+  title: 'eCast API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/documentation:
+    get:
+      summary: 'Display Swagger API page.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!-- HTML for static distribution bundle build -->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>eCast</title>\n  <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700\" rel=\"stylesheet\">\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"http://localhost/docs/asset/swagger-ui.css?v=b47dcdb59251cf1254ee38395c18b5b9\" >\n  <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\" />\n  <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\" />\n  <style>\n    html\n    {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n    }\n    *,\n    *:before,\n    *:after\n    {\n        box-sizing: inherit;\n    }\n\n    body {\n      margin:0;\n      background: #fafafa;\n    }\n  </style>\n</head>\n\n<body>\n\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" style=\"position:absolute;width:0;height:0\">\n  <defs>\n    <symbol viewBox=\"0 0 20 20\" id=\"unlocked\">\n          <path d=\"M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V6h2v-.801C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8z\"></path>\n    </symbol>\n\n    <symbol viewBox=\"0 0 20 20\" id=\"locked\">\n      <path d=\"M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8zM12 8H8V5.199C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8z\"/>\n    </symbol>\n\n    <symbol viewBox=\"0 0 20 20\" id=\"close\">\n      <path d=\"M14.348 14.849c-.469.469-1.229.469-1.697 0L10 11.819l-2.651 3.029c-.469.469-1.229.469-1.697 0-.469-.469-.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-.469-.469-.469-1.228 0-1.697.469-.469 1.228-.469 1.697 0L10 8.183l2.651-3.031c.469-.469 1.228-.469 1.697 0 .469.469.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c.469.469.469 1.229 0 1.698z\"/>\n    </symbol>\n\n    <symbol viewBox=\"0 0 20 20\" id=\"large-arrow\">\n      <path d=\"M13.25 10L6.109 2.58c-.268-.27-.268-.707 0-.979.268-.27.701-.27.969 0l7.83 7.908c.268.271.268.709 0 .979l-7.83 7.908c-.268.271-.701.27-.969 0-.268-.269-.268-.707 0-.979L13.25 10z\"/>\n    </symbol>\n\n    <symbol viewBox=\"0 0 20 20\" id=\"large-arrow-down\">\n      <path d=\"M17.418 6.109c.272-.268.709-.268.979 0s.271.701 0 .969l-7.908 7.83c-.27.268-.707.268-.979 0l-7.908-7.83c-.27-.268-.27-.701 0-.969.271-.268.709-.268.979 0L10 13.25l7.418-7.141z\"/>\n    </symbol>\n\n\n    <symbol viewBox=\"0 0 24 24\" id=\"jump-to\">\n      <path d=\"M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z\"/>\n    </symbol>\n\n    <symbol viewBox=\"0 0 24 24\" id=\"expand\">\n      <path d=\"M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z\"/>\n    </symbol>\n\n  </defs>\n</svg>\n\n<div id=\"swagger-ui\"></div>\n\n<script src=\"http://localhost/docs/asset/swagger-ui-bundle.js?v=798d369d6387e66b7278e63cb950a32f\"> </script>\n<script src=\"http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=e3a4b013757e84ad70d1ef12270ba31a\"> </script>\n<script>\nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    dom_id: '#swagger-ui',\n\n    url: \"http://localhost/docs/api-docs.json\",\n    operationsSorter: null,\n    configUrl: null,\n    validatorUrl: null,\n    oauth2RedirectUrl: \"http://localhost/api/oauth2-callback\",\n\n    requestInterceptor: function(request) {\n      request.headers['X-CSRF-TOKEN'] = '';\n      return request;\n    },\n\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n\n    layout: \"StandaloneLayout\",\n\n    persistAuthorization: true,\n  })\n\n  window.ui = ui\n}\n</script>\n</body>\n\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/oauth2-callback:
+    get:
+      summary: 'Display Oauth2 callback pages.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!doctype html>\n<html lang=\"en-US\">\n<head>\n    <title>Swagger UI: OAuth2 Redirect</title>\n</head>\n<body>\n<script>\n    'use strict';\n    function run () {\n        var oauth2 = window.opener.swaggerUIRedirectOauth2;\n        var sentState = oauth2.state;\n        var redirectUrl = oauth2.redirectUrl;\n        var isValid, qp, arr;\n\n        if (/code|token|error/.test(window.location.hash)) {\n            qp = window.location.hash.substring(1);\n        } else {\n            qp = location.search.substring(1);\n        }\n\n        arr = qp.split(\"&\");\n        arr.forEach(function (v,i,_arr) { _arr[i] = '\"' + v.replace('=', '\":\"') + '\"';});\n        qp = qp ? JSON.parse('{' + arr.join() + '}',\n                function (key, value) {\n                    return key === \"\" ? value : decodeURIComponent(value);\n                }\n        ) : {};\n\n        isValid = qp.state === sentState;\n\n        if ((\n          oauth2.auth.schema.get(\"flow\") === \"accessCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorizationCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorization_code\"\n        ) && !oauth2.auth.code) {\n            if (!isValid) {\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"warning\",\n                    message: \"Authorization may be unsafe, passed state was changed in server Passed state wasn't returned from auth server\"\n                });\n            }\n\n            if (qp.code) {\n                delete oauth2.state;\n                oauth2.auth.code = qp.code;\n                oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});\n            } else {\n                let oauthErrorMsg;\n                if (qp.error) {\n                    oauthErrorMsg = \"[\"+qp.error+\"]: \" +\n                        (qp.error_description ? qp.error_description+ \". \" : \"no accessCode received from the server. \") +\n                        (qp.error_uri ? \"More info: \"+qp.error_uri : \"\");\n                }\n\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"error\",\n                    message: oauthErrorMsg || \"[Authorization failed]: no accessCode received from the server\"\n                });\n            }\n        } else {\n            oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});\n        }\n        window.close();\n    }\n\n    window.addEventListener('DOMContentLoaded', function () {\n      run();\n    });\n</script>\n</body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/register:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/forgot-password:
+    post:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: id
+              required:
+                - email
+      security: []
+  /api/v1/auth/password-reset:
+    post:
+      summary: 'Show the form for resetting a new resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: est
+                password:
+                  type: string
+                  description: ''
+                  example: rerum
+                confirm_password:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: autem
+              required:
+                - token
+                - password
+                - confirm_password
+      security: []
+  /api/v1/auth/account/deactivation:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/auth/email/verify/{id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid/Expired url provided.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid/Expired url provided.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the verify.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/auth/email/resend:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Call to a member function hasVerifiedEmail() on null'
+                  exception: Error
+                  file: 'C:\wamp64\www\eCastBackend\app\Http\Controllers\Api\Authentication\AuthController.php'
+                  line: 119
+                  trace:
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                      line: 54
+                      function: resend
+                      class: App\Http\Controllers\Api\Authentication\AuthController
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                      line: 45
+                      function: callAction
+                      class: Illuminate\Routing\Controller
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 261
+                      function: dispatch
+                      class: Illuminate\Routing\ControllerDispatcher
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 204
+                      function: runController
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 695
+                      function: run
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 128
+                      function: 'Illuminate\Routing\{closure}'
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                      line: 50
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\SubstituteBindings
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 127
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 103
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 55
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 697
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 672
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 636
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 625
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 166
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 128
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 141
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 110
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 89
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 222
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 179
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 116
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 117
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 75
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 51
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 48
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 40
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 136
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Command\Command.php'
+                      line: 299
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 121
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 978
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 295
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 167
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 92
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'Call to a member function hasVerifiedEmail() on null'
+                  exception:
+                    type: string
+                    example: Error
+                  file:
+                    type: string
+                    example: 'C:\wamp64\www\eCastBackend\app\Http\Controllers\Api\Authentication\AuthController.php'
+                  line:
+                    type: integer
+                    example: 119
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                        line: 54
+                        function: resend
+                        class: App\Http\Controllers\Api\Authentication\AuthController
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                        line: 45
+                        function: callAction
+                        class: Illuminate\Routing\Controller
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 261
+                        function: dispatch
+                        class: Illuminate\Routing\ControllerDispatcher
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 204
+                        function: runController
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 695
+                        function: run
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 128
+                        function: 'Illuminate\Routing\{closure}'
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                        line: 50
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\SubstituteBindings
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 127
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 103
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 55
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 697
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 672
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 636
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 625
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 166
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 128
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 141
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 110
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 89
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 222
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 179
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 116
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 117
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 75
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 51
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 48
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 40
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 136
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Command\Command.php'
+                        line: 299
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 121
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 978
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 295
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 167
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 92
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/category/user-create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/category/categories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  categories:
+                    -
+                      id: 6
+                      name: Science
+                      covert_art: science.jpg
+                      created_at: '2021-08-24T12:48:10.000000Z'
+                      updated_at: '2021-08-24T12:48:10.000000Z'
+                    -
+                      id: 2
+                      name: Farming
+                      covert_art: farming.jpg
+                      created_at: '2021-08-24T12:46:23.000000Z'
+                      updated_at: '2021-08-24T12:46:23.000000Z'
+                    -
+                      id: 3
+                      name: 'Food & nutrition'
+                      covert_art: food.jpg
+                      created_at: '2021-08-24T12:46:23.000000Z'
+                      updated_at: '2021-08-24T12:46:23.000000Z'
+                    -
+                      id: 4
+                      name: 'Gospel - Christianity'
+                      covert_art: gospel.jpg
+                      created_at: null
+                      updated_at: null
+                    -
+                      id: 5
+                      name: Sports
+                      covert_art: sports.jpg
+                      created_at: '2021-08-24T12:47:13.000000Z'
+                      updated_at: '2021-08-24T12:47:13.000000Z'
+                properties:
+                  categories:
+                    type: array
+                    example:
+                      -
+                        id: 6
+                        name: Science
+                        covert_art: science.jpg
+                        created_at: '2021-08-24T12:48:10.000000Z'
+                        updated_at: '2021-08-24T12:48:10.000000Z'
+                      -
+                        id: 2
+                        name: Farming
+                        covert_art: farming.jpg
+                        created_at: '2021-08-24T12:46:23.000000Z'
+                        updated_at: '2021-08-24T12:46:23.000000Z'
+                      -
+                        id: 3
+                        name: 'Food & nutrition'
+                        covert_art: food.jpg
+                        created_at: '2021-08-24T12:46:23.000000Z'
+                        updated_at: '2021-08-24T12:46:23.000000Z'
+                      -
+                        id: 4
+                        name: 'Gospel - Christianity'
+                        covert_art: gospel.jpg
+                        created_at: null
+                        updated_at: null
+                      -
+                        id: 5
+                        name: Sports
+                        covert_art: sports.jpg
+                        created_at: '2021-08-24T12:47:13.000000Z'
+                        updated_at: '2021-08-24T12:47:13.000000Z'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/profile/basic_info/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/profile/basic_info/update:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/profile/basic_info/revert:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/alerts/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/alerts/get-alerts:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/alerts/delete:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/subscribe:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/unsubscribe:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/subscribers:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/new-subscribers:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/hosting-plans:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  hosting_plans:
+                    -
+                      id: 1
+                      title: 'Basic plan'
+                      identifier: basic
+                      stripe_id: prod_K52CFfthXrVZoc
+                      created_at: '2021-08-21T13:19:13.000000Z'
+                      updated_at: '2021-08-21T13:19:13.000000Z'
+                      hosting_plans_attributes: []
+                      hosting_plan_prices: []
+                properties:
+                  hosting_plans:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Basic plan'
+                        identifier: basic
+                        stripe_id: prod_K52CFfthXrVZoc
+                        created_at: '2021-08-21T13:19:13.000000Z'
+                        updated_at: '2021-08-21T13:19:13.000000Z'
+                        hosting_plans_attributes: []
+                        hosting_plan_prices: []
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/subscription/pay-hosting-plan:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/series/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/series/get:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/series/delete:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/listen:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/listen-create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/popular-podcasts:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  popular_podcasts:
+                    -
+                      id: 1
+                      podcast_serie_id: null
+                      channels_id: 7
+                      title: 'A long time ago'
+                      season: 2
+                      episode_number: 1
+                      audio_file: 1629886799.ogg
+                      clip_art: 1629886799.jpg
+                      description: 'This episode is the best of all guys'
+                      privacy: Public
+                      uploaded_at: '2020-12-12 00:00:00'
+                      created_at: '2021-08-25T10:20:00.000000Z'
+                      updated_at: '2021-08-25T10:20:00.000000Z'
+                      listens_count: 6
+                properties:
+                  popular_podcasts:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        podcast_serie_id: null
+                        channels_id: 7
+                        title: 'A long time ago'
+                        season: 2
+                        episode_number: 1
+                        audio_file: 1629886799.ogg
+                        clip_art: 1629886799.jpg
+                        description: 'This episode is the best of all guys'
+                        privacy: Public
+                        uploaded_at: '2020-12-12 00:00:00'
+                        created_at: '2021-08-25T10:20:00.000000Z'
+                        updated_at: '2021-08-25T10:20:00.000000Z'
+                        listens_count: 6
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/delete:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/episodes/all:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  podcasts:
+                    -
+                      id: 1
+                      podcast_serie_id: null
+                      channels_id: 7
+                      title: 'A long time ago'
+                      season: 2
+                      episode_number: 1
+                      audio_file: 1629886799.ogg
+                      clip_art: 1629886799.jpg
+                      description: 'This episode is the best of all guys'
+                      privacy: Public
+                      uploaded_at: '2020-12-12 00:00:00'
+                      created_at: '2021-08-25T10:20:00.000000Z'
+                      updated_at: '2021-08-25T10:20:00.000000Z'
+                    -
+                      id: 2
+                      podcast_serie_id: 8
+                      channels_id: 7
+                      title: 'A long time ago'
+                      season: 2
+                      episode_number: 1
+                      audio_file: 1629886897.ogg
+                      clip_art: 1629886897.jpg
+                      description: 'This episode is the best of all guys'
+                      privacy: Public
+                      uploaded_at: '2020-12-12 00:00:00'
+                      created_at: '2021-08-25T10:21:38.000000Z'
+                      updated_at: '2021-08-25T10:21:38.000000Z'
+                    -
+                      id: 3
+                      podcast_serie_id: 8
+                      channels_id: 7
+                      title: 'A long time ago'
+                      season: 2
+                      episode_number: 1
+                      audio_file: 1629897558.mp3
+                      clip_art: 1629897558.jpg
+                      description: 'This episode is the best of all guys'
+                      privacy: Public
+                      uploaded_at: '2020-12-12 00:00:00'
+                      created_at: '2021-08-25T13:19:20.000000Z'
+                      updated_at: '2021-08-25T13:19:20.000000Z'
+                    -
+                      id: 6
+                      podcast_serie_id: null
+                      channels_id: null
+                      title: 'Annociata podcast'
+                      season: 6
+                      episode_number: 1
+                      audio_file: 1630483819.mp3
+                      clip_art: 1630483819.jpg
+                      description: 'This is awesome'
+                      privacy: Public
+                      uploaded_at: '2021-08-03 00:00:00'
+                      created_at: '2021-09-01T08:10:20.000000Z'
+                      updated_at: '2021-09-01T08:10:20.000000Z'
+                    -
+                      id: 5
+                      podcast_serie_id: 8
+                      channels_id: 7
+                      title: 'My own taste of music'
+                      season: 1
+                      episode_number: 1
+                      audio_file: 1629904725.mp3
+                      clip_art: 1629904725.jpg
+                      description: 'This is the music that made me do a mistake. Something l shouldn''t have done. But it happened'
+                      privacy: Public
+                      uploaded_at: '2021-07-03 00:00:00'
+                      created_at: '2021-08-25T15:18:46.000000Z'
+                      updated_at: '2021-08-25T15:18:46.000000Z'
+                    -
+                      id: 4
+                      podcast_serie_id: 8
+                      channels_id: 7
+                      title: 'Sad music power'
+                      season: 1
+                      episode_number: 3
+                      audio_file: 1629903752.mp3
+                      clip_art: 1629903752.jpg
+                      description: 'The power of sad music'
+                      privacy: Public
+                      uploaded_at: '2021-07-04 00:00:00'
+                      created_at: '2021-08-25T15:02:32.000000Z'
+                      updated_at: '2021-08-25T15:02:32.000000Z'
+                properties:
+                  podcasts:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        podcast_serie_id: null
+                        channels_id: 7
+                        title: 'A long time ago'
+                        season: 2
+                        episode_number: 1
+                        audio_file: 1629886799.ogg
+                        clip_art: 1629886799.jpg
+                        description: 'This episode is the best of all guys'
+                        privacy: Public
+                        uploaded_at: '2020-12-12 00:00:00'
+                        created_at: '2021-08-25T10:20:00.000000Z'
+                        updated_at: '2021-08-25T10:20:00.000000Z'
+                      -
+                        id: 2
+                        podcast_serie_id: 8
+                        channels_id: 7
+                        title: 'A long time ago'
+                        season: 2
+                        episode_number: 1
+                        audio_file: 1629886897.ogg
+                        clip_art: 1629886897.jpg
+                        description: 'This episode is the best of all guys'
+                        privacy: Public
+                        uploaded_at: '2020-12-12 00:00:00'
+                        created_at: '2021-08-25T10:21:38.000000Z'
+                        updated_at: '2021-08-25T10:21:38.000000Z'
+                      -
+                        id: 3
+                        podcast_serie_id: 8
+                        channels_id: 7
+                        title: 'A long time ago'
+                        season: 2
+                        episode_number: 1
+                        audio_file: 1629897558.mp3
+                        clip_art: 1629897558.jpg
+                        description: 'This episode is the best of all guys'
+                        privacy: Public
+                        uploaded_at: '2020-12-12 00:00:00'
+                        created_at: '2021-08-25T13:19:20.000000Z'
+                        updated_at: '2021-08-25T13:19:20.000000Z'
+                      -
+                        id: 6
+                        podcast_serie_id: null
+                        channels_id: null
+                        title: 'Annociata podcast'
+                        season: 6
+                        episode_number: 1
+                        audio_file: 1630483819.mp3
+                        clip_art: 1630483819.jpg
+                        description: 'This is awesome'
+                        privacy: Public
+                        uploaded_at: '2021-08-03 00:00:00'
+                        created_at: '2021-09-01T08:10:20.000000Z'
+                        updated_at: '2021-09-01T08:10:20.000000Z'
+                      -
+                        id: 5
+                        podcast_serie_id: 8
+                        channels_id: 7
+                        title: 'My own taste of music'
+                        season: 1
+                        episode_number: 1
+                        audio_file: 1629904725.mp3
+                        clip_art: 1629904725.jpg
+                        description: 'This is the music that made me do a mistake. Something l shouldn''t have done. But it happened'
+                        privacy: Public
+                        uploaded_at: '2021-07-03 00:00:00'
+                        created_at: '2021-08-25T15:18:46.000000Z'
+                        updated_at: '2021-08-25T15:18:46.000000Z'
+                      -
+                        id: 4
+                        podcast_serie_id: 8
+                        channels_id: 7
+                        title: 'Sad music power'
+                        season: 1
+                        episode_number: 3
+                        audio_file: 1629903752.mp3
+                        clip_art: 1629903752.jpg
+                        description: 'The power of sad music'
+                        privacy: Public
+                        uploaded_at: '2021-07-04 00:00:00'
+                        created_at: '2021-08-25T15:02:32.000000Z'
+                        updated_at: '2021-08-25T15:02:32.000000Z'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/media/photos:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/podcasts/media/audios:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/channels/get:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  channels:
+                    -
+                      id: 14
+                      user_id: 30
+                      name: KelvinChidothi
+                      cover_art: default_cover_art.png
+                      description: 'Hey there, this is my new podcast channel!'
+                      created_at: '2021-09-15T12:57:32.000000Z'
+                      updated_at: '2021-09-15T12:57:32.000000Z'
+                      episodes: []
+                      subscribers: []
+                    -
+                      id: 7
+                      user_id: 21
+                      name: 'Kells Works'
+                      cover_art: 1629977793.jpg
+                      description: 'Hey everyone l will be posting podcasts on how to be a better computer programmer.'
+                      created_at: '2021-08-20T22:27:02.000000Z'
+                      updated_at: '2021-09-11T19:10:36.000000Z'
+                      episodes:
+                        -
+                          id: 1
+                          podcast_serie_id: null
+                          channels_id: 7
+                          title: 'A long time ago'
+                          season: 2
+                          episode_number: 1
+                          audio_file: 1629886799.ogg
+                          clip_art: 1629886799.jpg
+                          description: 'This episode is the best of all guys'
+                          privacy: Public
+                          uploaded_at: '2020-12-12 00:00:00'
+                          created_at: '2021-08-25T10:20:00.000000Z'
+                          updated_at: '2021-08-25T10:20:00.000000Z'
+                        -
+                          id: 2
+                          podcast_serie_id: 8
+                          channels_id: 7
+                          title: 'A long time ago'
+                          season: 2
+                          episode_number: 1
+                          audio_file: 1629886897.ogg
+                          clip_art: 1629886897.jpg
+                          description: 'This episode is the best of all guys'
+                          privacy: Public
+                          uploaded_at: '2020-12-12 00:00:00'
+                          created_at: '2021-08-25T10:21:38.000000Z'
+                          updated_at: '2021-08-25T10:21:38.000000Z'
+                        -
+                          id: 3
+                          podcast_serie_id: 8
+                          channels_id: 7
+                          title: 'A long time ago'
+                          season: 2
+                          episode_number: 1
+                          audio_file: 1629897558.mp3
+                          clip_art: 1629897558.jpg
+                          description: 'This episode is the best of all guys'
+                          privacy: Public
+                          uploaded_at: '2020-12-12 00:00:00'
+                          created_at: '2021-08-25T13:19:20.000000Z'
+                          updated_at: '2021-08-25T13:19:20.000000Z'
+                        -
+                          id: 4
+                          podcast_serie_id: 8
+                          channels_id: 7
+                          title: 'Sad music power'
+                          season: 1
+                          episode_number: 3
+                          audio_file: 1629903752.mp3
+                          clip_art: 1629903752.jpg
+                          description: 'The power of sad music'
+                          privacy: Public
+                          uploaded_at: '2021-07-04 00:00:00'
+                          created_at: '2021-08-25T15:02:32.000000Z'
+                          updated_at: '2021-08-25T15:02:32.000000Z'
+                        -
+                          id: 5
+                          podcast_serie_id: 8
+                          channels_id: 7
+                          title: 'My own taste of music'
+                          season: 1
+                          episode_number: 1
+                          audio_file: 1629904725.mp3
+                          clip_art: 1629904725.jpg
+                          description: 'This is the music that made me do a mistake. Something l shouldn''t have done. But it happened'
+                          privacy: Public
+                          uploaded_at: '2021-07-03 00:00:00'
+                          created_at: '2021-08-25T15:18:46.000000Z'
+                          updated_at: '2021-08-25T15:18:46.000000Z'
+                      subscribers:
+                        -
+                          id: 24
+                          user_id: 23
+                          channels_id: 7
+                          created_at: '2021-09-01T17:14:17.000000Z'
+                          updated_at: '2021-09-01T17:14:17.000000Z'
+                    -
+                      id: 13
+                      user_id: 29
+                      name: KelvinChidothi
+                      cover_art: default_cover_art.png
+                      description: 'Hey there, this is my new podcast channel!'
+                      created_at: '2021-09-15T12:24:08.000000Z'
+                      updated_at: '2021-09-15T12:24:08.000000Z'
+                      episodes: []
+                      subscribers: []
+                    -
+                      id: 12
+                      user_id: 28
+                      name: KelvinChidothi
+                      cover_art: default_cover_art.png
+                      description: 'Hey there, this is my new podcast channel!'
+                      created_at: '2021-09-15T06:53:06.000000Z'
+                      updated_at: '2021-09-15T06:53:06.000000Z'
+                      episodes: []
+                      subscribers: []
+                    -
+                      id: 11
+                      user_id: 27
+                      name: DaliChiwaula
+                      cover_art: default_cover_art.png
+                      description: 'Hey there, this is my new podcast channel!'
+                      created_at: '2021-09-15T06:52:43.000000Z'
+                      updated_at: '2021-09-15T06:52:43.000000Z'
+                      episodes: []
+                      subscribers: []
+                properties:
+                  channels:
+                    type: array
+                    example:
+                      -
+                        id: 14
+                        user_id: 30
+                        name: KelvinChidothi
+                        cover_art: default_cover_art.png
+                        description: 'Hey there, this is my new podcast channel!'
+                        created_at: '2021-09-15T12:57:32.000000Z'
+                        updated_at: '2021-09-15T12:57:32.000000Z'
+                        episodes: []
+                        subscribers: []
+                      -
+                        id: 7
+                        user_id: 21
+                        name: 'Kells Works'
+                        cover_art: 1629977793.jpg
+                        description: 'Hey everyone l will be posting podcasts on how to be a better computer programmer.'
+                        created_at: '2021-08-20T22:27:02.000000Z'
+                        updated_at: '2021-09-11T19:10:36.000000Z'
+                        episodes:
+                          -
+                            id: 1
+                            podcast_serie_id: null
+                            channels_id: 7
+                            title: 'A long time ago'
+                            season: 2
+                            episode_number: 1
+                            audio_file: 1629886799.ogg
+                            clip_art: 1629886799.jpg
+                            description: 'This episode is the best of all guys'
+                            privacy: Public
+                            uploaded_at: '2020-12-12 00:00:00'
+                            created_at: '2021-08-25T10:20:00.000000Z'
+                            updated_at: '2021-08-25T10:20:00.000000Z'
+                          -
+                            id: 2
+                            podcast_serie_id: 8
+                            channels_id: 7
+                            title: 'A long time ago'
+                            season: 2
+                            episode_number: 1
+                            audio_file: 1629886897.ogg
+                            clip_art: 1629886897.jpg
+                            description: 'This episode is the best of all guys'
+                            privacy: Public
+                            uploaded_at: '2020-12-12 00:00:00'
+                            created_at: '2021-08-25T10:21:38.000000Z'
+                            updated_at: '2021-08-25T10:21:38.000000Z'
+                          -
+                            id: 3
+                            podcast_serie_id: 8
+                            channels_id: 7
+                            title: 'A long time ago'
+                            season: 2
+                            episode_number: 1
+                            audio_file: 1629897558.mp3
+                            clip_art: 1629897558.jpg
+                            description: 'This episode is the best of all guys'
+                            privacy: Public
+                            uploaded_at: '2020-12-12 00:00:00'
+                            created_at: '2021-08-25T13:19:20.000000Z'
+                            updated_at: '2021-08-25T13:19:20.000000Z'
+                          -
+                            id: 4
+                            podcast_serie_id: 8
+                            channels_id: 7
+                            title: 'Sad music power'
+                            season: 1
+                            episode_number: 3
+                            audio_file: 1629903752.mp3
+                            clip_art: 1629903752.jpg
+                            description: 'The power of sad music'
+                            privacy: Public
+                            uploaded_at: '2021-07-04 00:00:00'
+                            created_at: '2021-08-25T15:02:32.000000Z'
+                            updated_at: '2021-08-25T15:02:32.000000Z'
+                          -
+                            id: 5
+                            podcast_serie_id: 8
+                            channels_id: 7
+                            title: 'My own taste of music'
+                            season: 1
+                            episode_number: 1
+                            audio_file: 1629904725.mp3
+                            clip_art: 1629904725.jpg
+                            description: 'This is the music that made me do a mistake. Something l shouldn''t have done. But it happened'
+                            privacy: Public
+                            uploaded_at: '2021-07-03 00:00:00'
+                            created_at: '2021-08-25T15:18:46.000000Z'
+                            updated_at: '2021-08-25T15:18:46.000000Z'
+                        subscribers:
+                          -
+                            id: 24
+                            user_id: 23
+                            channels_id: 7
+                            created_at: '2021-09-01T17:14:17.000000Z'
+                            updated_at: '2021-09-01T17:14:17.000000Z'
+                      -
+                        id: 13
+                        user_id: 29
+                        name: KelvinChidothi
+                        cover_art: default_cover_art.png
+                        description: 'Hey there, this is my new podcast channel!'
+                        created_at: '2021-09-15T12:24:08.000000Z'
+                        updated_at: '2021-09-15T12:24:08.000000Z'
+                        episodes: []
+                        subscribers: []
+                      -
+                        id: 12
+                        user_id: 28
+                        name: KelvinChidothi
+                        cover_art: default_cover_art.png
+                        description: 'Hey there, this is my new podcast channel!'
+                        created_at: '2021-09-15T06:53:06.000000Z'
+                        updated_at: '2021-09-15T06:53:06.000000Z'
+                        episodes: []
+                        subscribers: []
+                      -
+                        id: 11
+                        user_id: 27
+                        name: DaliChiwaula
+                        cover_art: default_cover_art.png
+                        description: 'Hey there, this is my new podcast channel!'
+                        created_at: '2021-09-15T06:52:43.000000Z'
+                        updated_at: '2021-09-15T06:52:43.000000Z'
+                        episodes: []
+                        subscribers: []
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/channels/update-channel:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/channels/listener-review-create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/channels/listener-review-get:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/channels/channel-attributes:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statistics/countries:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    country: Malawi
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statistics/listens-by-gender:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Undefined index: M'
+                  exception: ErrorException
+                  file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Collections\Collection.php'
+                  line: 1510
+                  trace:
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Collections\Collection.php'
+                      line: 1510
+                      function: handleError
+                      class: Illuminate\Foundation\Bootstrap\HandleExceptions
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\app\Http\Controllers\Api\Analytics\StatisticsController.php'
+                      line: 30
+                      function: offsetGet
+                      class: Illuminate\Support\Collection
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                      line: 54
+                      function: getListensByGender
+                      class: App\Http\Controllers\Api\Analytics\StatisticsController
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                      line: 45
+                      function: callAction
+                      class: Illuminate\Routing\Controller
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 261
+                      function: dispatch
+                      class: Illuminate\Routing\ControllerDispatcher
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 204
+                      function: runController
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 695
+                      function: run
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 128
+                      function: 'Illuminate\Routing\{closure}'
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                      line: 50
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\SubstituteBindings
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 127
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 103
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 55
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 697
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 672
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 636
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 625
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 166
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 128
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 141
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 110
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 89
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 222
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 179
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 116
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 117
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 75
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 51
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 48
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 40
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 136
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Command\Command.php'
+                      line: 299
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 121
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 978
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 295
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                      line: 167
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 92
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\wamp64\www\eCastBackend\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'Undefined index: M'
+                  exception:
+                    type: string
+                    example: ErrorException
+                  file:
+                    type: string
+                    example: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Collections\Collection.php'
+                  line:
+                    type: integer
+                    example: 1510
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Collections\Collection.php'
+                        line: 1510
+                        function: handleError
+                        class: Illuminate\Foundation\Bootstrap\HandleExceptions
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\app\Http\Controllers\Api\Analytics\StatisticsController.php'
+                        line: 30
+                        function: offsetGet
+                        class: Illuminate\Support\Collection
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                        line: 54
+                        function: getListensByGender
+                        class: App\Http\Controllers\Api\Analytics\StatisticsController
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                        line: 45
+                        function: callAction
+                        class: Illuminate\Routing\Controller
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 261
+                        function: dispatch
+                        class: Illuminate\Routing\ControllerDispatcher
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 204
+                        function: runController
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 695
+                        function: run
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 128
+                        function: 'Illuminate\Routing\{closure}'
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                        line: 50
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\SubstituteBindings
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 127
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 103
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 55
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 697
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 672
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 636
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 625
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 166
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 128
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 141
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 110
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 89
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 222
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 179
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 116
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 117
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 75
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 51
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 48
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 40
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 136
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Command\Command.php'
+                        line: 299
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 121
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 978
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 295
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\symfony\console\Application.php'
+                        line: 167
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 92
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\wamp64\www\eCastBackend\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statistics/annual-listens:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 0
+                  - 0
+                  - 0
+                  - 0
+                  - 0
+                  - 1
+                  - 1
+                  - 2
+                  - 0
+                  - 0
+                  - 0
+                  - 0
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statistics/total-annual-listens:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  total_listens: 4
+                properties:
+                  total_listens:
+                    type: integer
+                    example: 4
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/statistics/create-engagement:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/events/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/events/edit:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/events/promote:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/events/get:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/search/recent-create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/search/recent-get:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/inbox/messages/fetch:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  messages: []
+                properties:
+                  messages:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/inbox/messages/send:
+    post:
+      summary: 'Persist message to database'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

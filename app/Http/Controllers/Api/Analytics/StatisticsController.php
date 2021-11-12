@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\EpisodeListens;
 use DB;
-use App\Http\Traits\EngagementTrait;
+// use App\Http\Traits\EngagementTrait;
 
 class StatisticsController extends Controller
 {
-    use EngagementTrait;
+    // use EngagementTrait;
 
     public function countriesListening(Request $request){
 
@@ -86,7 +86,7 @@ class StatisticsController extends Controller
 
     public function userEngagements(Request $request)
     {
-        $this->create($request->user_id);
+        // $this->create($request->user_id);
 
         return response()->json([
             'message' => 'Created!'

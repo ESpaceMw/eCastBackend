@@ -15,10 +15,10 @@ class CreateEpisodeListensTable extends Migration
     {
         Schema::create('episode_listens', function (Blueprint $table) {
             $table->id();
-            $table->integer('podcast_serie_id')->unsigned()->nullable();
-            $table->foreign('podcast_serie_id')->references('id')->on('postcast_series');
-            $table->integer('podcast_episode_id')->unsigned()->nullable();
-            $table->foreign('podcast_episode_id')->references('id')->on('postcast_episodes');
+            $table->unSignedBigInteger('podcast_serie_id')->nullable();
+            $table->foreign('podcast_serie_id')->references('id')->on('podcast_series');
+            $table->unSignedBigInteger('podcast_episode_id')->nullable();
+            $table->foreign('podcast_episode_id')->references('id')->on('podcast_episodes');
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateBasicInfosTable extends Migration
     {
         Schema::create('basic_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('clip_art');
             $table->string('podcast_url');

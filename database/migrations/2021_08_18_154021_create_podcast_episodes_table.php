@@ -15,9 +15,9 @@ class CreatePodcastEpisodesTable extends Migration
     {
         Schema::create('podcast_episodes', function (Blueprint $table) {
             $table->id();
-            $table->integer('podcast_serie_id')->unsigned()->nullable();
-            $table->foreign('podcast_serie_id')->references('id')->on('postcast_series');
-            $table->integer('channels_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('podcast_serie_id')->nullable();
+            $table->foreign('podcast_serie_id')->references('id')->on('podcast_series');
+            $table->unSignedBigInteger('channels_id')->nullable();
             $table->foreign('channels_id')->references('id')->on('channels');
             $table->string('title');
             $table->integer('season');

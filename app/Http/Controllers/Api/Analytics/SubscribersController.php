@@ -57,11 +57,20 @@ class SubscribersController extends Controller
 
         $newSubscribers = Subscribers::where('channels_id', $request->channels_id)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->get()->count();
 
-        $rate = ($newSubscribers / $newSubscribers) * 100;
+        If($newSubscribers !== 0){
+            $rate = ($newSubscribers / $newSubscribers) * 100;
 
-        return response()->json([
-            'new_subscribers' => $newSubscribers,
-            'rate' => $rate
-        ], 200);
+                return response()->json([
+                'new_subscribers' => $newSubscribers,
+                'rate' => $rate
+            ], 200);
+        }
+        else{
+            return response()->json([
+                'new_subscribers' => 0,
+                'rate' => 0
+            ], 200);
+        }
+
     }
 }

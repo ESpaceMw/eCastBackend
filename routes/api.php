@@ -61,6 +61,10 @@ Route::prefix('v1')->group(function () {
 
         Route::get('email/resend', [AuthController::class, 'resend'])->name('verification.resend');
 
+        /*Google Authentication */
+        Route::get('/redirect', [AuthController::class, 'redirectToProvider']);
+
+        Route::get('/callback', [AuthController::class, 'handleProviderCallback']);
     });
 
     Route::prefix('category')->group(function () {

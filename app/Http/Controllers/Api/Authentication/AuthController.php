@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Channels;
 use App\Models\BasicInfo;
 
+use Socialite;
+
 class AuthController extends Controller
 {
     public function register(Request $request)
@@ -168,4 +170,87 @@ class AuthController extends Controller
         ], 200);
     }
 
+    /*Google authentication */
+
+    /**
+     * Redirect the user to the Google authentication page.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Obtain the user information from Google.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Email not associated with Google'
+            ], 200);
+        }
+
+        // check if they're an existing user
+        $existingUser = User::where('email', $user->email)->first();
+        if($existingUser){
+            $channel = Channels::where('user_id', $user->id)->get();
+
+            $basicInfo = BasicInfo::where('user_id', $user->id)->get();
+
+            $token = $existingUser->createToken('auth_token')->plainTextToken;
+
+            return response()->json([
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+                    'user' => $existingUser,
+                    'channel' => $channel,
+                    'basic_info' => $basicInfo
+            ]);
+        } else {
+
+            $newUser                  = new User();
+            $newUser->name            = $user->name;
+            $newUser->email           = $user->email;
+            $newUser->google_id       = $user->google_is;
+            $newUser->save();
+
+            $basicInfo = BasicInfo::create([
+                'user_id' => $user->id,
+                'clip_art' => 'default_clip_art.png',
+                'podcast_url' => $newUser->name,
+                'title' => '',
+                'tagline' => '',
+                'description' => '',
+                'category' => ''
+
+            ]);
+
+            $channel = Channels::create([
+                'user_id' => $user->id,
+                'name' => $user->first_name.$user->last_name,
+                'cover_art' => 'default_cover_art.png',
+                'description' => 'Hey there, this is my new podcast channel!'
+            ]);
+
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            return response()->json([
+                        'access_token' => $token,
+                        'token_type' => 'Bearer',
+                        'user' => $user,
+                        'basic_info' => $basicInfo,
+                        'channel' => $channel
+            ]);
+        }
+        return response()->json([
+            'message' => 'success'
+        ], 200);
+    }
 }

@@ -15,7 +15,7 @@ class CreateListenersReviewsTable extends Migration
     {
         Schema::create('listeners_reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('channels_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('channels_id')->nullable();
             $table->foreign('channels_id')->references('id')->on('channels');
             $table->string('reviewer_name');
             $table->string('reviewer_avatar');

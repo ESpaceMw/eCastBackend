@@ -15,9 +15,9 @@ class CreateUsersInterestCategoriesTable extends Migration
     {
         Schema::create('users_interest_categories', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('users_interest_category_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('users_interest_category_id')->nullable();
             $table->foreign('users_interest_category_id')->references('id')->on('users_interest_categories');
             $table->timestamps();
         });

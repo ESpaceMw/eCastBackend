@@ -15,7 +15,7 @@ class CreatePodcastSeriesTable extends Migration
     {
         Schema::create('podcast_series', function (Blueprint $table) {
             $table->id();
-            $table->integer('channels_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('channels_id')->nullable();
             $table->foreign('channels_id')->references('id')->on('channels');
             $table->string('title');
             $table->string('cover_art');

@@ -14,7 +14,7 @@ class CreateUserHostingPlansTable extends Migration
     public function up()
     {
         Schema::create('user_hosting_plans', function (Blueprint $table) {
-            $table->integer('hosting_plan_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('hosting_plan_id')->nullable();
             $table->foreign('hosting_plan_id')->references('id')->on('hosting_plans');
             $table->integer('user_id');
             $table->timestamps();

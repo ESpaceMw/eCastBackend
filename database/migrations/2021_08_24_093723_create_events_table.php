@@ -15,7 +15,7 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->integer('channel_id')->unsigned()->nullable();
+            $table->unSignedBigInteger('channel_id')->nullable();
             $table->foreign('channel_id')->references('id')->on('channels');
             $table->string('title');
             $table->string('cover_art');

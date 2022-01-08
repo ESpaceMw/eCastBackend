@@ -42,6 +42,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 |
 */
 
+Route::middleware('auth:api')->group(function () {
+
+});
+
 Route::prefix('v1')->group(function () {
 
     Route::prefix('auth')->group(function () {
@@ -76,7 +80,9 @@ Route::prefix('v1')->group(function () {
 
     });
 
-    Route::prefix('profile')->group(function () {
+   Route::middleware(['middleware', 'auth:sanctum'])->group(function () {
+
+     Route::prefix('profile')->group(function () {
 
         Route::prefix('basic_info')->group(function () {
 
@@ -216,4 +222,5 @@ Route::prefix('v1')->group(function () {
 
     });
 
+   });
 });

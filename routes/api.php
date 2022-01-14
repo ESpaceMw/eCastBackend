@@ -217,7 +217,10 @@ Route::prefix('v1')->group(function () {
     Route::prefix('inbox')->group(function () {
 
 
-        Route::get('messages/fetch', [InboxController::class, 'fetchMessages']);
+        Route::get('messages/fetch-messages', [InboxController::class, 'fetchMessages']);
+
+        Route::post('messages/fetch-users', [SubscribersController::class, 'getSubscribers']);
+
         Route::post('messages/send', [InboxController::class, 'sendMessage']);
 
     });

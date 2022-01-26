@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChannelsTable extends Migration
+class CreatePodcastEpisodeSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateChannelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
+        Schema::create('podcast_episode_subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->unSignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
-            $table->string('cover_art');
-            $table->string('description');
+            $table->unSignedBigInteger('podcast_episodes_id')->nullable();
+            $table->foreign('podcast_episodes_id')->references('id')->on('podcast_episodes');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateChannelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('channels');
+        Schema::dropIfExists('podcast_episode_subscriptions');
     }
 }

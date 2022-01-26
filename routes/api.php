@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\Podcast\MediaController;
 use App\Http\Controllers\Api\Analytics\StatisticsController;
 use App\Http\Controllers\Api\Overview\InboxController;
 
+use App\Http\Controllers\Api\Player\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -226,4 +227,11 @@ Route::prefix('v1')->group(function () {
     });
 
    });
+
+   Route::prefix('media-player')->group(function () {
+
+
+        Route::get('get-data', [PlayerController::class, 'index']);
+
+    });
 });

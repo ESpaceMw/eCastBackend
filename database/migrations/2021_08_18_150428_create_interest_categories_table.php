@@ -16,7 +16,7 @@ class CreateInterestCategoriesTable extends Migration
         Schema::create('interest_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('covert_art');
+            $table->string('cover_art');
             $table->timestamps();
         });
     }

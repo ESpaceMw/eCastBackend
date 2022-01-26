@@ -25,6 +25,7 @@ class CreatePodcastEpisodesTable extends Migration
             $table->string('audio_file');
             $table->string('clip_art');
             $table->string('description');
+            $table->string('subscription_type');
             $table->string('privacy')->default('Privacy');
             $table->datetime('uploaded_at');
             $table->timestamps();
